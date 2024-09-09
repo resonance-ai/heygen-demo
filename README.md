@@ -1,4 +1,4 @@
-.
+..
 
 # HeyGen Interactive Avatar NextJS Demo
 
