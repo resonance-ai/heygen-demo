@@ -14,12 +14,12 @@ export default function NavBar() {
   return (
     <Navbar className="w-full">
       <NavbarBrand>
-        <Link isExternal aria-label="HeyGen" href="https://app.heygen.com/">
+        {/* <Link isExternal aria-label="HeyGen" href="https://app.heygen.com/">
           <HeyGenLogo />
-        </Link>
+        </Link> */}
         <div className="bg-gradient-to-br from-sky-300 to-indigo-500 bg-clip-text ml-4">
           <p className="text-xl font-semibold text-transparent">
-            HeyGen Interactive Avatar SDK NextJS Demo
+            HeyGen Interactive Avatar SDK NextJS
           </p>
         </div>
       </NavbarBrand>

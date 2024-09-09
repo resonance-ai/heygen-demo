@@ -15,6 +15,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { usePrevious } from 'ahooks'
 import InteractiveAvatarTextInput from "./InteractiveAvatarTextInput";
+import AvatarButtonTextInput from "./AvatarButtonTextInput";
 import { AVATARS } from "@/app/lib/constants";
 
 export default function InteractiveAvatar() {
@@ -228,6 +229,14 @@ export default function InteractiveAvatar() {
           )}
         </CardBody>
         <Divider />
+        <Button>test</Button>
+        <AvatarButtonTextInput
+          input="Hello, What your name?"
+          onSubmit={handleSpeak}
+          setInput={setText}
+          disabled={!stream}
+          loading={isLoadingRepeat}
+        />
         <CardFooter className="flex flex-col gap-3 relative">
           <InteractiveAvatarTextInput
             label="Chat"
