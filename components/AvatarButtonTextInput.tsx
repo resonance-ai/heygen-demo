@@ -20,29 +20,44 @@ export default function AvatarButtonTextInput({
   loading = false,
 }: StreamingAvatarTextInputProps) {
   function handleSubmit() {
-    if (input.trim() === "") {
-      return;
-    }
+    // await setInput("how are you?");
+    // await console.log('[handleSubmit] Button.tsx:', input)
     onSubmit();
+    // await setInput("");
+  }
+
+  function printConsole() {
+    input="how are you?";
+    // setInput(input);
+    setInput("how are you?");
+    console.log('Button clicked with input:', typeof input);
+    // console.log('Button clicked with input:', setInput);
+
     setInput("");
   }
 
   return (
+    <div>
+      <Button
+        type="submit"
+        className="focus:outline-none"
+        onClick={handleSubmit}
+        // onClick={printConsole}
+        isDisabled={disabled}
+      >
+        how are you?
+      </Button>
+      <div>
+        input : {input}
+      </div>
+      {/* <div>
+        setInput : {setInput("what your name?")}   
+      </div> */}
 
-    <Button
-      type="submit"
-      className="focus:outline-none"
-      onClick={handleSubmit}
-      // onKeyDown={(e) => {
-      //   if (e.key === "Enter") {
-      //     handleSubmit();
-      //   }
-      // }}
-      // onValueChange={setInput}
-      isDisabled={disabled}
-    >
-      {input}
-    </Button>
+
+    </div>
+
+
     // <Input
     //   endContent={
     //     <div className="flex flex-row items-center h-full">

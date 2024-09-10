@@ -80,7 +80,7 @@ export default function InteractiveAvatar() {
       setIsLoadingSession(false);
     }
   }
-  async function handleSpeak() {
+  async function handleSpeak(chatMessage: string) {
     setIsLoadingRepeat(true);
     if (!avatar.current) {
       setDebug("Avatar API not initialized");
@@ -88,10 +88,12 @@ export default function InteractiveAvatar() {
       return;
     }
     await avatar.current
-      .speak({ text: text, sessionId: data?.session_id! })
+      // .speak({ text: text, sessionId: data?.session_id! })
+      .speak({ text: chatMessage, sessionId: data?.session_id! })
       .catch((e) => {
         setDebug(e.message);
       });
+    console.log('[avatar.current.speak] Print text to console:', text);
     setIsLoadingRepeat(false);
   }
   async function handleInterrupt() {
@@ -231,8 +233,8 @@ export default function InteractiveAvatar() {
         <Divider />
         <Button>test</Button>
         <AvatarButtonTextInput
-          input="Hello, What your name?"
-          onSubmit={handleSpeak}
+          input={text} //필요없음
+          onSubmit={() => handleSpeak("how are you")}
           setInput={setText}
           disabled={!stream}
           loading={isLoadingRepeat}
@@ -242,7 +244,7 @@ export default function InteractiveAvatar() {
             label="Chat"
             placeholder="Type something for the avatar to respond"
             input={text}
-            onSubmit={handleSpeak}
+            onSubmit={() => handleSpeak(text)}
             setInput={setText}
             disabled={!stream}
             loading={isLoadingRepeat}
