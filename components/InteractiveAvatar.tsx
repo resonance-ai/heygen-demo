@@ -162,6 +162,41 @@ export default function InteractiveAvatar() {
               >
                 <track kind="captions" />
               </video>
+
+              {/* <div className="flex flex-row justify-center gap-3 absolute bottom-20 bg-opacity-0">
+                <AvatarButtonTextInput
+                  input={"1How are you?"} 
+                  onSubmit={() => handleSpeak("How are you?")}
+                  setInput={setText}
+                  disabled={!stream}
+                  loading={isLoadingRepeat}
+                />
+                <AvatarButtonTextInput
+                  input={"1How are you?"} 
+                  onSubmit={() => handleSpeak("How are you?")}
+                  setInput={setText}
+                  disabled={!stream}
+                  loading={isLoadingRepeat}
+                />
+              </div>
+              <div className="flex flex-row justify-center gap-3 absolute bottom-5 bg-opacity-0">
+                <AvatarButtonTextInput
+                  input={"2How are you?"} 
+                  onSubmit={() => handleSpeak("How are you?")}
+                  setInput={setText}
+                  disabled={!stream}
+                  loading={isLoadingRepeat}
+                />
+                <AvatarButtonTextInput
+                  input={"2How are you?"} 
+                  onSubmit={() => handleSpeak("How are you?")}
+                  setInput={setText}
+                  disabled={!stream}
+                  loading={isLoadingRepeat}
+                />
+              </div> */}
+
+              
               <div className="flex flex-col gap-2 absolute bottom-3 right-3">
                 <Button
                   size="md"
@@ -231,16 +266,76 @@ export default function InteractiveAvatar() {
           )}
         </CardBody>
         <Divider />
-        <Button>test</Button>
-        <AvatarButtonTextInput
-          input={text} //필요없음
-          onSubmit={() => handleSpeak("how are you")}
-          setInput={setText}
-          disabled={!stream}
-          loading={isLoadingRepeat}
-        />
-        <CardFooter className="flex flex-col gap-3 relative">
-          <InteractiveAvatarTextInput
+        <CardFooter className="flex flex-row justify-center gap-3 relative">
+          <AvatarButtonTextInput
+            input={"How are you?"} 
+            onSubmit={() => handleSpeak("How are you?")}
+            setInput={setText}
+            disabled={!stream}
+            loading={isLoadingRepeat}
+          />
+          <AvatarButtonTextInput
+            input={"How are you?"} 
+            onSubmit={() => handleSpeak("How are you?")}
+            setInput={setText}
+            disabled={!stream}
+            loading={isLoadingRepeat}
+          />
+          <AvatarButtonTextInput
+            input={"How are you?"} 
+            onSubmit={() => handleSpeak("How are you?")}
+            setInput={setText}
+            disabled={!stream}
+            loading={isLoadingRepeat}
+          />
+          <AvatarButtonTextInput
+            input={"How are you?"} 
+            onSubmit={() => handleSpeak("How are you?")}
+            setInput={setText}
+            disabled={!stream}
+            loading={isLoadingRepeat}
+          />
+          <AvatarButtonTextInput
+            input={"How are you?"} 
+            onSubmit={() => handleSpeak("How are you?")}
+            setInput={setText}
+            disabled={!stream}
+            loading={isLoadingRepeat}
+          />
+        </CardFooter>
+
+        
+        <CardFooter className="flex flex-row gap-3 justify-center relative">
+          <AvatarButtonTextInput
+            input={"How are you?"} 
+            onSubmit={() => handleSpeak("How are you?")}
+            setInput={setText}
+            disabled={!stream}
+            loading={isLoadingRepeat}
+          />
+          <AvatarButtonTextInput
+            input={"How are you?"} 
+            onSubmit={() => handleSpeak("How are you?")}
+            setInput={setText}
+            disabled={!stream}
+            loading={isLoadingRepeat}
+          />
+          <AvatarButtonTextInput
+            input={"How are you?"} 
+            onSubmit={() => handleSpeak("How are you?")}
+            setInput={setText}
+            disabled={!stream}
+            loading={isLoadingRepeat}
+          />
+          <AvatarButtonTextInput
+            input={"How are you?"} 
+            onSubmit={() => handleSpeak("How are you?")}
+            setInput={setText}
+            disabled={!stream}
+            loading={isLoadingRepeat}
+          />
+          
+          {/* <InteractiveAvatarTextInput
             label="Chat"
             placeholder="Type something for the avatar to respond"
             input={text}
@@ -251,7 +346,7 @@ export default function InteractiveAvatar() {
           />
           {
             text && <Chip className='absolute right-16 top-6'>Listening</Chip>
-          }
+          } */}
         </CardFooter>
       </Card>
       <p className="font-mono text-right">

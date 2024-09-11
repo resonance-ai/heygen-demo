@@ -15,25 +15,13 @@ export default function AvatarButtonTextInput({
   input,
   onSubmit,
   setInput,
-  endContent,
   disabled = false,
-  loading = false,
 }: StreamingAvatarTextInputProps) {
   function handleSubmit() {
     // await setInput("how are you?");
     // await console.log('[handleSubmit] Button.tsx:', input)
     onSubmit();
     // await setInput("");
-  }
-
-  function printConsole() {
-    input="how are you?";
-    // setInput(input);
-    setInput("how are you?");
-    console.log('Button clicked with input:', typeof input);
-    // console.log('Button clicked with input:', setInput);
-
-    setInput("");
   }
 
   return (
@@ -45,14 +33,8 @@ export default function AvatarButtonTextInput({
         // onClick={printConsole}
         isDisabled={disabled}
       >
-        how are you?
+        {input}
       </Button>
-      <div>
-        input : {input}
-      </div>
-      {/* <div>
-        setInput : {setInput("what your name?")}   
-      </div> */}
 
 
     </div>
