@@ -147,9 +147,9 @@ export default function InteractiveAvatar() {
   return (
     <div className="w-full flex flex-col gap-4">
       <Card>
-        <CardBody className="h-[500px] flex flex-col justify-center items-center">
+        <CardBody className="h-[900px] flex flex-col justify-center items-center">
           {stream ? (
-            <div className="h-[500px] w-[900px] justify-center items-center flex rounded-lg overflow-hidden">
+            <div className="h-[900px] w-[800px] justify-center items-center flex rounded-lg overflow-hidden">
               <video
                 ref={mediaStream}
                 autoPlay
@@ -162,39 +162,76 @@ export default function InteractiveAvatar() {
               >
                 <track kind="captions" />
               </video>
-
-              {/* <div className="flex flex-row justify-center gap-3 absolute bottom-20 bg-opacity-0">
-                <AvatarButtonTextInput
-                  input={"1How are you?"} 
-                  onSubmit={() => handleSpeak("How are you?")}
-                  setInput={setText}
-                  disabled={!stream}
-                  loading={isLoadingRepeat}
-                />
-                <AvatarButtonTextInput
-                  input={"1How are you?"} 
-                  onSubmit={() => handleSpeak("How are you?")}
-                  setInput={setText}
-                  disabled={!stream}
-                  loading={isLoadingRepeat}
-                />
+              
+              <div className="absolute bottom-40 bg-opacity-0">           
+                <CardFooter className="flex flex-row justify-center gap-3 bg-opacity-0">
+                  <AvatarButtonTextInput
+                    input={"How are you?"} 
+                    onSubmit={() => handleSpeak("How are you?")}
+                    setInput={setText}
+                    disabled={!stream}
+                    loading={isLoadingRepeat}
+                  />
+                  <AvatarButtonTextInput
+                    input={"How are you?"} 
+                    onSubmit={() => handleSpeak("How are you?")}
+                    setInput={setText}
+                    disabled={!stream}
+                    loading={isLoadingRepeat}
+                  />
+                  <AvatarButtonTextInput
+                    input={"How are you?"} 
+                    onSubmit={() => handleSpeak("How are you?")}
+                    setInput={setText}
+                    disabled={!stream}
+                    loading={isLoadingRepeat}
+                  />
+                  <AvatarButtonTextInput
+                    input={"How are you?"} 
+                    onSubmit={() => handleSpeak("How are you?")}
+                    setInput={setText}
+                    disabled={!stream}
+                    loading={isLoadingRepeat}
+                  />
+                  <AvatarButtonTextInput
+                    input={"How are you?"} 
+                    onSubmit={() => handleSpeak("How are you?")}
+                    setInput={setText}
+                    disabled={!stream}
+                    loading={isLoadingRepeat}
+                  />
+                </CardFooter>
+                <CardFooter className="flex flex-row justify-center gap-3 bg-opacity-0">
+                  <AvatarButtonTextInput
+                    input={"How are you?"} 
+                    onSubmit={() => handleSpeak("How are you?")}
+                    setInput={setText}
+                    disabled={!stream}
+                    loading={isLoadingRepeat}
+                  />
+                  <AvatarButtonTextInput
+                    input={"How are you?"} 
+                    onSubmit={() => handleSpeak("How are you?")}
+                    setInput={setText}
+                    disabled={!stream}
+                    loading={isLoadingRepeat}
+                  />
+                  <AvatarButtonTextInput
+                    input={"How are you?"} 
+                    onSubmit={() => handleSpeak("How are you?")}
+                    setInput={setText}
+                    disabled={!stream}
+                    loading={isLoadingRepeat}
+                  />
+                  <AvatarButtonTextInput
+                    input={"How are you?"} 
+                    onSubmit={() => handleSpeak("How are you?")}
+                    setInput={setText}
+                    disabled={!stream}
+                    loading={isLoadingRepeat}
+                  />
+                </CardFooter>
               </div>
-              <div className="flex flex-row justify-center gap-3 absolute bottom-5 bg-opacity-0">
-                <AvatarButtonTextInput
-                  input={"2How are you?"} 
-                  onSubmit={() => handleSpeak("How are you?")}
-                  setInput={setText}
-                  disabled={!stream}
-                  loading={isLoadingRepeat}
-                />
-                <AvatarButtonTextInput
-                  input={"2How are you?"} 
-                  onSubmit={() => handleSpeak("How are you?")}
-                  setInput={setText}
-                  disabled={!stream}
-                  loading={isLoadingRepeat}
-                />
-              </div> */}
 
               
               <div className="flex flex-col gap-2 absolute bottom-3 right-3">
@@ -265,89 +302,6 @@ export default function InteractiveAvatar() {
             <Spinner size="lg" color="default" />
           )}
         </CardBody>
-        <Divider />
-        <CardFooter className="flex flex-row justify-center gap-3 relative">
-          <AvatarButtonTextInput
-            input={"How are you?"} 
-            onSubmit={() => handleSpeak("How are you?")}
-            setInput={setText}
-            disabled={!stream}
-            loading={isLoadingRepeat}
-          />
-          <AvatarButtonTextInput
-            input={"How are you?"} 
-            onSubmit={() => handleSpeak("How are you?")}
-            setInput={setText}
-            disabled={!stream}
-            loading={isLoadingRepeat}
-          />
-          <AvatarButtonTextInput
-            input={"How are you?"} 
-            onSubmit={() => handleSpeak("How are you?")}
-            setInput={setText}
-            disabled={!stream}
-            loading={isLoadingRepeat}
-          />
-          <AvatarButtonTextInput
-            input={"How are you?"} 
-            onSubmit={() => handleSpeak("How are you?")}
-            setInput={setText}
-            disabled={!stream}
-            loading={isLoadingRepeat}
-          />
-          <AvatarButtonTextInput
-            input={"How are you?"} 
-            onSubmit={() => handleSpeak("How are you?")}
-            setInput={setText}
-            disabled={!stream}
-            loading={isLoadingRepeat}
-          />
-        </CardFooter>
-
-        
-        <CardFooter className="flex flex-row gap-3 justify-center relative">
-          <AvatarButtonTextInput
-            input={"How are you?"} 
-            onSubmit={() => handleSpeak("How are you?")}
-            setInput={setText}
-            disabled={!stream}
-            loading={isLoadingRepeat}
-          />
-          <AvatarButtonTextInput
-            input={"How are you?"} 
-            onSubmit={() => handleSpeak("How are you?")}
-            setInput={setText}
-            disabled={!stream}
-            loading={isLoadingRepeat}
-          />
-          <AvatarButtonTextInput
-            input={"How are you?"} 
-            onSubmit={() => handleSpeak("How are you?")}
-            setInput={setText}
-            disabled={!stream}
-            loading={isLoadingRepeat}
-          />
-          <AvatarButtonTextInput
-            input={"How are you?"} 
-            onSubmit={() => handleSpeak("How are you?")}
-            setInput={setText}
-            disabled={!stream}
-            loading={isLoadingRepeat}
-          />
-          
-          {/* <InteractiveAvatarTextInput
-            label="Chat"
-            placeholder="Type something for the avatar to respond"
-            input={text}
-            onSubmit={() => handleSpeak(text)}
-            setInput={setText}
-            disabled={!stream}
-            loading={isLoadingRepeat}
-          />
-          {
-            text && <Chip className='absolute right-16 top-6'>Listening</Chip>
-          } */}
-        </CardFooter>
       </Card>
       <p className="font-mono text-right">
         <span className="font-bold">Console:</span>
