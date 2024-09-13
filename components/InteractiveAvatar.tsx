@@ -16,6 +16,8 @@ import { useEffect, useRef, useState } from "react";
 import { usePrevious } from 'ahooks'
 import InteractiveAvatarTextInput from "./InteractiveAvatarTextInput";
 import AvatarButtonTextInput from "./AvatarButtonTextInput";
+import AvatarDebugConsole from "./AvatarDebugConsole";
+import AvatarDebugBottons from "./AvatarDebugBottons";
 import { AVATARS } from "@/app/lib/constants";
 
 export default function InteractiveAvatar() {
@@ -29,6 +31,14 @@ export default function InteractiveAvatar() {
   const [text, setText] = useState<string>("");
   const mediaStream = useRef<HTMLVideoElement>(null);
   const avatar = useRef<StreamingAvatar | null>(null);
+
+  // useEffect(() => {
+  //   console.log('initializing')
+  //   if (!isLoadingSession) {
+  //     startSession();
+  //   }
+
+  // }, [])
 
   async function fetchAccessToken() {
     try {
@@ -47,7 +57,10 @@ export default function InteractiveAvatar() {
   }
 
   async function startSession() {
+    console.log ("[setAvatarId Before Avatar ID] : ", avatarId);
+    setAvatarId("Susan_public_2_20240328")
     setIsLoadingSession(true);
+    console.log ("[setAvatarId After Avatar ID] : ", avatarId);
     const newToken = await fetchAccessToken();
     avatar.current = new StreamingAvatar({
       token: newToken,
@@ -63,11 +76,13 @@ export default function InteractiveAvatar() {
       endSession();
     });
     try {
+      console.log ("[createStartAvatar Before Avatar ID] : ", avatarId);
       const res = await avatar.current.createStartAvatar({
         quality: AvatarQuality.Low,
         avatarName: avatarId,
         knowledgeId: knowledgeId,
       });
+      console.log ("[createStartAvatar After Avatar ID] : ", avatarId);
 
       setData(res);
       avatar.current?.on(StreamingEvents.STREAM_READY, (event) => {
@@ -79,6 +94,7 @@ export default function InteractiveAvatar() {
     } finally {
       setIsLoadingSession(false);
     }
+    console.log ("[End Of startSession Function Avatar ID] : ", avatarId);
   }
   async function handleSpeak(chatMessage: string) {
     setIsLoadingRepeat(true);
@@ -94,9 +110,11 @@ export default function InteractiveAvatar() {
         setDebug(e.message);
       });
     console.log('[avatar.current.speak] Print text to console:', text);
+    console.log ("[Check Avatar ID in avatar.current.speak] : ", avatarId);
     setIsLoadingRepeat(false);
   }
   async function handleInterrupt() {
+    console.log ("[Check Avatar ID in handleInterrupt] : ", avatarId);
     if (!avatar.current) {
       setDebug("Avatar API not initialized");
 
@@ -109,6 +127,7 @@ export default function InteractiveAvatar() {
       });
   }
   async function endSession() {
+    console.log ("[Check Avatar ID in endSession] : ", avatarId);
     if (!avatar.current) {
       setDebug("Avatar API not initialized");
 
@@ -140,6 +159,7 @@ export default function InteractiveAvatar() {
       mediaStream.current.onloadedmetadata = () => {
         mediaStream.current!.play();
         setDebug("Playing");
+        console.log ("[Check Avatar ID in stream] : ", avatarId);
       };
     }
   }, [mediaStream, stream]);
@@ -233,7 +253,8 @@ export default function InteractiveAvatar() {
                 </CardFooter>
               </div>
 
-              
+              {/* <AvatarDebugBottons/> */}
+
               <div className="flex flex-col gap-2 absolute bottom-3 right-3">
                 <Button
                   size="md"
@@ -253,61 +274,77 @@ export default function InteractiveAvatar() {
                 </Button>
               </div>
             </div>
-          ) : !isLoadingSession ? (
-            <div className="h-full justify-center items-center flex flex-col gap-8 w-[500px] self-center">
-              <div className="flex flex-col gap-2 w-full">
-                <p className="text-sm font-medium leading-none">
-                  Custom Knowledge ID (optional)
-                </p>
-                <Input
-                  value={knowledgeId}
-                  onChange={(e) => setKnowledgeId(e.target.value)}
-                  placeholder="Enter a custom knowledge ID"
-                />
-                <p className="text-sm font-medium leading-none">
-                  Custom Avatar ID (optional)
-                </p>
-                <Input
-                  value={avatarId}
-                  onChange={(e) => setAvatarId(e.target.value)}
-                  placeholder="Enter a custom avatar ID"
-                />
-                <Select
-                  placeholder="Or select one from these example avatars"
-                  size="md"
-                  onChange={(e) => {
-                    setAvatarId(e.target.value);
-                  }}
-                >
-                  {AVATARS.map((avatar) => (
-                    <SelectItem
-                      key={avatar.avatar_id}
-                      textValue={avatar.avatar_id}
-                    >
-                      {avatar.name}
-                    </SelectItem>
-                  ))}
-                </Select>
-              </div>
-              <Button
-                size="md"
-                onClick={startSession}
-                className="bg-gradient-to-tr from-indigo-500 to-indigo-300 w-full text-white"
-                variant="shadow"
-              >
-                Start session
-              </Button>
-            </div>
-          ) : (
+          ) : 
+          !isLoadingSession ? (
+          
+          <div className="flex justify-center items-center">
+            <Button 
+              onClick={startSession}
+              // className="bg-gradient-to-tr text-white rounded-lg"
+              className="bg-blue-500 text-white px-7 py-8 rounded-lg text-5xl"
+              variant="shadow"
+            >START!</Button>
+          </div>
+
+
+          //   <div className="h-full justify-center items-center flex flex-col gap-8 w-[500px] self-center">
+          //     <div className="flex flex-col gap-2 w-full">
+          //       <p className="text-sm font-medium leading-none">
+          //         Custom Knowledge ID (optional)
+          //       </p>
+          //       <Input
+          //         value={knowledgeId}
+          //         onChange={(e) => setKnowledgeId(e.target.value)}
+          //         placeholder="Enter a custom knowledge ID"
+          //       />
+          //       <p className="text-sm font-medium leading-none">
+          //         Custom Avatar ID (optional)
+          //       </p>
+          //       <Input
+          //         value={avatarId}
+          //         onChange={(e) => setAvatarId(e.target.value)}
+          //         placeholder="Enter a custom avatar ID"
+          //       />
+          //       <Select
+          //         placeholder="Or select one from these example avatars"
+          //         size="md"
+          //         onChange={(e) => {
+          //           setAvatarId(e.target.value);
+          //         }}
+          //       >
+          //         {AVATARS.map((avatar) => (
+          //           <SelectItem
+          //             key={avatar.avatar_id}
+          //             textValue={avatar.avatar_id}
+          //           >
+          //             {avatar.name}
+          //           </SelectItem>
+          //         ))}
+          //       </Select>
+          //     </div>
+          //     <Button
+          //       size="md"
+          //       onClick={startSession}
+          //       className="bg-gradient-to-tr from-indigo-500 to-indigo-300 w-full text-white"
+          //       variant="shadow"
+          //     >
+          //       Start session
+          //     </Button>
+          //   </div>
+          
+          ) : 
+          (
             <Spinner size="lg" color="default" />
           )}
         </CardBody>
       </Card>
-      <p className="font-mono text-right">
+
+      <AvatarDebugConsole debug={debug}/>
+      {/* <p className="font-mono text-right">
         <span className="font-bold">Console:</span>
         <br />
         {debug}
-      </p>
+      </p> */}
     </div>
   );
 }
