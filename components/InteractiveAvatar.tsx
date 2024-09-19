@@ -59,7 +59,7 @@ export default function InteractiveAvatar() {
 
   async function startSession() {
     console.log ("[setAvatarId Before Avatar ID] : ", avatarId);
-    setAvatarId("Susan_public_2_20240328")
+    // setAvatarId("Anna_public_3_20240108")
     setIsLoadingSession(true);
     console.log ("[setAvatarId After Avatar ID] : ", avatarId);
     const newToken = await fetchAccessToken();
@@ -80,7 +80,7 @@ export default function InteractiveAvatar() {
       console.log ("[createStartAvatar Before Avatar ID] : ", avatarId);
       const res = await avatar.current.createStartAvatar({
         quality: AvatarQuality.Low,
-        avatarName: avatarId,
+        avatarName: "Eric_public_pro2_20230608",
         knowledgeId: knowledgeId,
       });
       console.log ("[createStartAvatar After Avatar ID] : ", avatarId);
