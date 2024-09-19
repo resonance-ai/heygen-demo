@@ -19,6 +19,7 @@ import AvatarButtonTextInput from "./AvatarButtonTextInput";
 import AvatarDebugConsole from "./AvatarDebugConsole";
 import AvatarDebugBottons from "./AvatarDebugBottons";
 import { AVATARS } from "@/app/lib/constants";
+import type { InferGetStaticPropsType, GetStaticProps } from 'next'
 
 export default function InteractiveAvatar() {
   const [isLoadingSession, setIsLoadingSession] = useState(false);
@@ -255,7 +256,7 @@ export default function InteractiveAvatar() {
 
               {/* <AvatarDebugBottons/> */}
 
-              <div className="flex flex-col gap-2 absolute bottom-3 right-3">
+              {/* <div className="flex flex-col gap-2 absolute bottom-3 right-3">
                 <Button
                   size="md"
                   onClick={handleInterrupt}
@@ -272,7 +273,10 @@ export default function InteractiveAvatar() {
                 >
                   End session
                 </Button>
-              </div>
+              </div> */}
+
+
+
             </div>
           ) : 
           !isLoadingSession ? (
@@ -339,7 +343,7 @@ export default function InteractiveAvatar() {
         </CardBody>
       </Card>
 
-      <AvatarDebugConsole debug={debug}/>
+      {/* <AvatarDebugConsole debug={debug}/> */}
       {/* <p className="font-mono text-right">
         <span className="font-bold">Console:</span>
         <br />
