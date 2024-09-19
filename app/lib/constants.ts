@@ -19,4 +19,17 @@ export const AVATARS = [
     avatar_id: "josh_lite3_20230714",
     name: "Joshua Heygen CEO",
   },
+  // NOT WORKING
+  // {
+  //   avatar_id: "aaf2533a92bc48ea82cd744e072f6e1e",
+  //   name: "Lisa AI Matting",
+  // },
+  // {
+  //   avatar_id: "60b3cdf516bd4212b1dbd1ec27fc0e8b",
+  //   name: "Je60b3cdf516bd4212b1dbd1ec27fc0e8b2",
+  // },
+  // {
+  //   avatar_id: "713cfeee7b8f4fa493f99799d200f4aa",
+  //   name: "Custom Avatar Pink Shirt",
+  // },
 ];
