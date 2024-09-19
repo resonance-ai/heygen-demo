@@ -31,6 +31,13 @@ export default function InteractiveAvatarTextInput({
     setInput("");
   }
 
+  function printConsole() {
+    // console.log('Input clicked with input:', typeof input);
+    console.log('Input.tsx:', setInput);
+
+    setInput("");
+  }
+
   return (
     <Input
       endContent={
@@ -47,7 +54,8 @@ export default function InteractiveAvatarTextInput({
               <button
                 type="submit"
                 className="focus:outline-none"
-                onClick={handleSubmit}
+                // onClick={handleSubmit}
+                onClick={printConsole}
               >
                 <PaperPlaneRight
                   className={clsx(
@@ -59,6 +67,7 @@ export default function InteractiveAvatarTextInput({
               </button>
             )}
           </Tooltip>
+          <div>input : {input}</div>
         </div>
       }
       label={label}
@@ -67,10 +76,11 @@ export default function InteractiveAvatarTextInput({
       value={input}
       onKeyDown={(e) => {
         if (e.key === "Enter") {
-          handleSubmit();
+          // handleSubmit();
+          printConsole();
         }
       }}
-      onValueChange={setInput}
+      onValueChange={setInput} //텍스트박스를 바꿀때마다 동ㅏ됨, setinput으로 이용해서 버튼 내용을 setinput에 넣기
       isDisabled={disabled}
     />
   );
