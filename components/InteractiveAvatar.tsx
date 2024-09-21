@@ -80,7 +80,7 @@ export default function InteractiveAvatar() {
       console.log ("[createStartAvatar Before Avatar ID] : ", avatarId);
       const res = await avatar.current.createStartAvatar({
         quality: AvatarQuality.Low,
-        avatarName: "Eric_public_pro2_20230608",
+        avatarName: "josh_lite3_20230714",
         knowledgeId: knowledgeId,
       });
       console.log ("[createStartAvatar After Avatar ID] : ", avatarId);
@@ -194,29 +194,15 @@ export default function InteractiveAvatar() {
                     loading={isLoadingRepeat}
                   />
                   <AvatarButtonTextInput
-                    input={"How are you?"} 
-                    onSubmit={() => handleSpeak("How are you?")}
+                    input={"What your name?"} 
+                    onSubmit={() => handleSpeak("What your name?")}
                     setInput={setText}
                     disabled={!stream}
                     loading={isLoadingRepeat}
                   />
                   <AvatarButtonTextInput
-                    input={"How are you?"} 
-                    onSubmit={() => handleSpeak("How are you?")}
-                    setInput={setText}
-                    disabled={!stream}
-                    loading={isLoadingRepeat}
-                  />
-                  <AvatarButtonTextInput
-                    input={"How are you?"} 
-                    onSubmit={() => handleSpeak("How are you?")}
-                    setInput={setText}
-                    disabled={!stream}
-                    loading={isLoadingRepeat}
-                  />
-                  <AvatarButtonTextInput
-                    input={"How are you?"} 
-                    onSubmit={() => handleSpeak("How are you?")}
+                    input={"What’s your favorite topic?"} 
+                    onSubmit={() => handleSpeak("What’s your favorite topic?")}
                     setInput={setText}
                     disabled={!stream}
                     loading={isLoadingRepeat}
@@ -224,29 +210,45 @@ export default function InteractiveAvatar() {
                 </CardFooter>
                 <CardFooter className="flex flex-row justify-center gap-3 bg-opacity-0">
                   <AvatarButtonTextInput
-                    input={"How are you?"} 
-                    onSubmit={() => handleSpeak("How are you?")}
+                    input={"What is your favorite animal?"} 
+                    onSubmit={() => handleSpeak("What is your favorite animal?")}
                     setInput={setText}
                     disabled={!stream}
                     loading={isLoadingRepeat}
                   />
                   <AvatarButtonTextInput
-                    input={"How are you?"} 
-                    onSubmit={() => handleSpeak("How are you?")}
+                      input={"What can you help with?"} 
+                      onSubmit={() => handleSpeak("What can you help with?")}
+                      setInput={setText}
+                      disabled={!stream}
+                      loading={isLoadingRepeat}
+                  />
+                  <AvatarButtonTextInput
+                    input={"Can you learn new things?"} 
+                    onSubmit={() => handleSpeak("Can you learn new things?")}
+                    setInput={setText}
+                    disabled={!stream}
+                    loading={isLoadingRepeat}
+                  />
+                </CardFooter>
+                <CardFooter className="flex flex-row justify-center gap-3 bg-opacity-0">
+                  <AvatarButtonTextInput
+                    input={"Can you solve problems?"} 
+                    onSubmit={() => handleSpeak("Can you solve problems?")}
                     setInput={setText}
                     disabled={!stream}
                     loading={isLoadingRepeat}
                   />
                   <AvatarButtonTextInput
-                    input={"How are you?"} 
-                    onSubmit={() => handleSpeak("How are you?")}
+                    input={"Do you know fun facts?"} 
+                    onSubmit={() => handleSpeak("Do you know fun facts?")}
                     setInput={setText}
                     disabled={!stream}
                     loading={isLoadingRepeat}
                   />
                   <AvatarButtonTextInput
-                    input={"How are you?"} 
-                    onSubmit={() => handleSpeak("How are you?")}
+                    input={"Do you ever sleep?"} 
+                    onSubmit={() => handleSpeak("Do you ever sleep?")}
                     setInput={setText}
                     disabled={!stream}
                     loading={isLoadingRepeat}
