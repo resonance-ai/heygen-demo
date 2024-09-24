@@ -1,11 +1,22 @@
 version: "3"
 
 services:
-  heygen:
+  install:
     image: node:local
-    command: sh
-    tty: true
-    stdin_open: true
+    command: npm install 
+    working_dir: /workspace
+    volumes:
+     - ./:/workspace
+
+    build: 
+      dockerfile: ./Dockerfile
+
+
+  heygen:
+    depends_on: 
+     - install
+    image: node:local
+    command: npm run build && npm run start
     working_dir: /workspace
     volumes:
      - ./:/workspace
