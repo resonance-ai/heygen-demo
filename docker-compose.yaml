@@ -3,7 +3,19 @@ version: "3"
 services:
   install:
     image: node:local
-    command: npm install 
+    command: npm install
+    working_dir: /workspace
+    volumes:
+     - ./:/workspace
+
+    build: 
+      dockerfile: ./Dockerfile
+
+  build:
+    depends_on: 
+      - install
+    image: node:local
+    command: npm run build
     working_dir: /workspace
     volumes:
      - ./:/workspace
@@ -14,9 +26,9 @@ services:
 
   heygen:
     depends_on: 
-     - install
+     - build
     image: node:local
-    command: npm run build && npm run start
+    command: npm run start
     working_dir: /workspace
     volumes:
      - ./:/workspace
